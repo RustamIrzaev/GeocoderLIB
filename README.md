@@ -1,11 +1,12 @@
 GeocoderLIB
 ===========
 
+>//TODO
+
 **Android library for Google geocoding.**
 **It supports multisearch and address selection dialog.**
 
-1. Just allow your Activity to implement GeocoderListener and generate all 
-neccessary overloads:
+* Just allow your Activity to implement GeocoderListener and generate all neccessary overloads:
 
 <pre><code>public class TestAddressActivity extends Activity implements GeocoderListener {
   public void onAddressGotStatus(GeocodingStatus status) {
@@ -30,5 +31,5 @@ neccessary overloads:
   } 
 }</code></pre>
 
-To execute a search just do the following:  
++ To execute a search just do the following:
 ``new ValidateAddress(getApplicationContext(), this, true).validate("Lenina Ave 4");``
