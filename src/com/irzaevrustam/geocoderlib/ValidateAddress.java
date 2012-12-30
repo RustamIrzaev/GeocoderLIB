@@ -28,7 +28,6 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class ValidateAddress implements AddressDialog.AddressDialogListener {
-//	private static final String TAG = "Address Validate Manager";
 	private GeocoderOptions mGeocoderOptions;
 	private String mAddress;
 	private String mUrl;
@@ -40,30 +39,18 @@ public class ValidateAddress implements AddressDialog.AddressDialogListener {
 	private boolean mIsInternetConnectionFails = false;
 	private ArrayList<String> mAvailableCountries = new ArrayList<String>();
 
-	/** Initialises the validation manager.
-	 * @param context
-	 * @param listener Listener ({@link GeocoderListener}) to cotrol current state of progress. */
 	public ValidateAddress(Context context, GeocoderListener listener) {
 		mContext = context;
 		mListener = listener;
 	}
 
-	/** Initialises the validation manager.
-	 * @param context
-	 * @param listener Listener ({@link GeocoderListener}) to cotrol current state of progress.
-	 * @param needProgressDialog true if need to show progress dialog during executing a query.*/
 	public ValidateAddress(Context context, GeocoderListener listener, boolean needProgressDialog) {
 		mContext = context;
 		mListener = listener;
 		mNeedProgressDialog = needProgressDialog;
 	}
 	
-	/** Initialises the validation manager.
-	 * @param context
-	 * @param listener Listener ({@link GeocoderListener}) to cotrol current state of progress.
-	 * @param needProgressDialog true if need to show progress dialog during executing a query.
-	 * @param availableCountries countries that geocoder needs to validate*/
-	public ValidateAddress(Context context, GeocoderListener listener, boolean needProgressDialog, 
+	public ValidateAddress(Context context, GeocoderListener listener, boolean needProgressDialog,
 			ArrayList<String> availableCountries) {
 		mContext = context;
 		mListener = listener;
@@ -71,11 +58,6 @@ public class ValidateAddress implements AddressDialog.AddressDialogListener {
 		mAvailableCountries = availableCountries;
 	}
 
-	/** Initialises the validation manager.
-	 * @param context
-	 * @param listener Listener ({@link GeocoderListener}) to cotrol current state of progress.
-	 * @param needProgressDialog true if need to show progress dialog during executing a query.
-	 * @param options Options and rules for validation ({@link GeocoderOptions}). */
 	public ValidateAddress(Context context, GeocoderListener listener, boolean needProgressDialog,
 			GeocoderOptions options) {
 		mContext = context;
@@ -84,63 +66,48 @@ public class ValidateAddress implements AddressDialog.AddressDialogListener {
 		mGeocoderOptions = options;
 	}
 
-	/** Initialises the validation manager.
-	 * @param context
-	 * @param listener Listener ({@link GeocoderListener}) to control current state of progress.
-	 * @param options Options and rules for validation ({@link GeocoderOptions}).
-	 */
 	public ValidateAddress(Context context, GeocoderListener listener, GeocoderOptions options) {
 		mContext = context;
 		mListener = listener;
 		mGeocoderOptions = options;
 	}
 
-	/** Obtains validation manager's options. */
 	public GeocoderOptions getGeocoderOptions() {
 		return mGeocoderOptions;
 	}
 
-	/** Setups options and rules for manager. */
 	public void setGeocoderOptions(GeocoderOptions mGeocoderOptions) {
 		this.mGeocoderOptions = mGeocoderOptions;
 	}
 
-	/** Get address which need to be validated. */
 	public String getAddress() {
 		return mAddress;
 	}
 
-	/** Get status of progress dialog. */
 	public boolean isNeedProgressDialog() {
 		return mNeedProgressDialog;
 	}
 
-	/** @param mNeedProgressDialog true if need to show progress dialog during executing a query */
 	public void setNeedProgressDialog(boolean mNeedProgressDialog) {
 		this.mNeedProgressDialog = mNeedProgressDialog;
 	}
 
-	/** Get all available countries that gecocoder needs to validate. */
 	public ArrayList<String> getAvailableCountries() {
 		return mAvailableCountries;
 	}
 
-	/** @param countries list of countries to validate (whitelist) */
 	public void setAvailableCountries(ArrayList<String> countries) {
 		this.mAvailableCountries = countries;
 	}
 
-	/** Get currently assigned listener. */
 	public GeocoderListener getListener() {
 		return mListener;
 	}
 
-	/** Set listener to monitoring address validation activity. */
 	public void setListener(GeocoderListener mListener) {
 		this.mListener = mListener;
 	}
 
-	/** Append all view's 'getText' to a separated by 'space' address. */
 	private StringBuilder buildMultipleAddress(View...editTextArray) {
 		StringBuilder fullAddress = new StringBuilder();
 		for (View item : editTextArray) {
@@ -152,8 +119,7 @@ public class ValidateAddress implements AddressDialog.AddressDialogListener {
 		
 		return fullAddress;
 	}
-	
-	/** Run address validation. */
+
 	public void validate(String country, View...editTextArray) {
 		if (editTextArray.length == 0) {
 			mListener.onAddressGotFailedStatus("Address is empty.");
@@ -163,8 +129,7 @@ public class ValidateAddress implements AddressDialog.AddressDialogListener {
 		mCountry = country;
 		validate(country + " " + buildMultipleAddress(editTextArray));
 	}
-	
-	/** Run address validation. */
+
 	public void validate(View... editTextArray) {
 		if (editTextArray.length == 0) {
 			mListener.onAddressGotFailedStatus("Address is empty.");
@@ -174,7 +139,6 @@ public class ValidateAddress implements AddressDialog.AddressDialogListener {
 		validate(buildMultipleAddress(editTextArray).toString());
 	}
 
-	/** Run address validation. */
 	public void validate(String address) {
 		assert mListener != null;
 		
@@ -358,17 +322,6 @@ public class ValidateAddress implements AddressDialog.AddressDialogListener {
 					mListener.onAddressZeroResult();
 				}
 			}
-			
-//			if (result.size() > 1) {
-				//new AddressDialog(mContext, result, ValidateAddress.this);
-//			} else {
-//				if (result.size() > 0) {
-//					mListener.onAddressGotResult(result.getItem(0));
-//				} else {
-////					mListener.onAddressGotFailedStatus("Items loading failed.");
-//					mListener.onAddressZeroResult();
-//				}
-//			}
 		}
 	}
 

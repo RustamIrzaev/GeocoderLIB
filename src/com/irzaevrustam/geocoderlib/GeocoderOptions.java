@@ -6,7 +6,6 @@ import com.irzaevrustam.geocoderlib.enums.GeocodingTypes;
 
 import java.util.ArrayList;
 
-/** Options for Geocoder. */
 public class GeocoderOptions {
 	private GeocodingLanguage mLanguage = GeocodingLanguage.EN;
 	private GeocodingType mGeocodingType = GeocodingType.BY_ADDRESS;
@@ -31,8 +30,6 @@ public class GeocoderOptions {
 		return mLanguage;
 	}
 
-	/** Set locale in which parser need to extract data.
-	 * @param mLanguage Language */
 	public void setLanguage(GeocodingLanguage mLanguage) {
 		this.mLanguage = mLanguage;
 	}
@@ -41,8 +38,6 @@ public class GeocoderOptions {
 		return mGeocodingType;
 	}
 
-	/** Set type of geocoding: via address or via it coordinates.
-	 * @param mGeocodingType type of geocoding */
 	public void setGeocodingType(GeocodingType mGeocodingType) {
 		this.mGeocodingType = mGeocodingType;
 	}
@@ -51,9 +46,6 @@ public class GeocoderOptions {
 		return mSensor;
 	}
 
-	/** Set sensor type. 
-	 * For mobile devices this parameter must be set to true.
-	 * @param mSensor mode of sensor */
 	public void setSensor(boolean mSensor) {
 		this.mSensor = mSensor;
 	}
@@ -62,8 +54,6 @@ public class GeocoderOptions {
 		return mConnectionTimeout;
 	}
 
-	/** Set connection timeout.
-	 * @param mTimeout Timeout in msecs */
 	public void setConnectionTimeout(int mTimeout) {
 		this.mConnectionTimeout = mTimeout;
 	}
@@ -72,8 +62,6 @@ public class GeocoderOptions {
 		return mSocketTimeout;
 	}
 
-	/** Set socket timeout.
-	 * @param mSockeTimeout Timeout in msecs */
 	public void setSocketTimeout(int mSocketTimeout) {
 		this.mSocketTimeout = mSocketTimeout;
 	}
@@ -82,14 +70,10 @@ public class GeocoderOptions {
 		return mValidAccuracies;
 	}
 
-	/** Set one or more accuracy levels.
-	 * @param mValidAccuracies */
 	public void setValidAccuracies(ArrayList<GeocodingTypes> mValidAccuracies) {
 		this.mValidAccuracies = mValidAccuracies;
 	}
-	
-	/** Add accuracy level.
-	 * @param type */
+
 	public void addValidAccuracy(GeocodingTypes type) {
 		mValidAccuracies.add(type);
 	}

@@ -1,6 +1,5 @@
 package com.irzaevrustam.geocoderlib.enums;
 
-/** The language in which to return results. */
 public enum GeocodingLanguage {
 	/** Arabic */
 	AR,

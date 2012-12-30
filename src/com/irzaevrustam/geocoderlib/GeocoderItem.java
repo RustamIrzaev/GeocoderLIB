@@ -85,14 +85,10 @@ public class GeocoderItem {
 		return getStreet() + " " + getStreetNumber();
 	}
 
-	/** @return All types converted to one string line. */
 	public String getTypesToString() {
 		return AddressHelper.typesToString(mTypes);
 	}
 
-	/** Check for valid accuracies level.
-	 * @param validAccuracies Valid accuracies.
-	 * @return TRUE if valid otherwise FALSE. */
 	public boolean isValid(ArrayList<GeocodingTypes> validAccuracies) {
 		boolean isContain = false;
 		for (GeocodingTypes typeAcc : validAccuracies) {

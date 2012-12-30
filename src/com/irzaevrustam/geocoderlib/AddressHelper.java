@@ -28,8 +28,6 @@ public class AddressHelper {
 
 //	public static final String MESSAGE_INVALID_REQUEST = "Invalid request.";
 
-	/** @param options
-	 * @return Url built according to {@link GeocoderOptions} */
 	public static String buildUrl(GeocoderOptions options) {
 		String url = GAPI_URL;
 
@@ -54,8 +52,6 @@ public class AddressHelper {
 		return url;
 	}
 
-	/** @param source
-	 * @return Converted string to {@link com.irzaevrustam.geocoderlib.enums.GeocodingStatus} */
 	public static GeocodingStatus stringToStatus(String source) {
 		if (source.equalsIgnoreCase(GeocodingStatus.INVALID_REQUEST.name())) {
 			return GeocodingStatus.INVALID_REQUEST;
@@ -72,8 +68,6 @@ public class AddressHelper {
 		return GeocodingStatus.INVALID_REQUEST;
 	}
 
-	/** @param source
-	 * @return Converted string to {@link com.irzaevrustam.geocoderlib.enums.GeocodingTypes} */
 	private static GeocodingTypes stringToTypes(String source) {
 		if (source.equalsIgnoreCase(GeocodingTypes.ADMINISTRATIVE_AREA_LEVEL_1.name())) {
 			return GeocodingTypes.ADMINISTRATIVE_AREA_LEVEL_1;
@@ -126,8 +120,6 @@ public class AddressHelper {
 		return GeocodingTypes.NONE;
 	}
 
-	/** @param source
-	 * @return Converted string to {@link com.irzaevrustam.geocoderlib.enums.LocationType} */
 	public static LocationType stringToLocationType(String source) {
 		if (source.equalsIgnoreCase(LocationType.APPROXIMATE.name())) {
 			return LocationType.APPROXIMATE;
@@ -142,14 +134,10 @@ public class AddressHelper {
 		return LocationType.NONE;
 	}
 
-	/** @param status
-	 * @return Message generated according to the status. */
 	public static String messageAccordingToStatus(GeocodingStatus status) {
 		return status.name();
 	}
 
-	/** @param source
-	 * @return Converts JSON-block 'types' to understandable array of geocoding types. */
 	public static ArrayList<GeocodingTypes> decodeTypes(String source) {
 		ArrayList<GeocodingTypes> result = new ArrayList<GeocodingTypes>();
 
@@ -162,8 +150,6 @@ public class AddressHelper {
 		return result;
 	}
 
-	/** @param types
-	 * @return Converts Geocoing types to string. */
 	public static String typesToString(ArrayList<GeocodingTypes> types) {
 		String result = "";
 
@@ -178,11 +164,6 @@ public class AddressHelper {
 		return result;
 	}
 	
-	/**
-	 * @param item link to {@link GeocoderItem}
-	 * @param geocodingTypes array of {@link GeocodingTypes}
-	 * @return 
-	 */
 	public static String getSpecificData(GeocoderItem item, GeocodingTypes...geocodingTypes) {
 		ArrayList<GeocodingTypes> geoTypes = new ArrayList<GeocodingTypes>();
         Collections.addAll(geoTypes, geocodingTypes);

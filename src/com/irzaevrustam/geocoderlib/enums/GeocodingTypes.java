@@ -1,7 +1,5 @@
 package com.irzaevrustam.geocoderlib.enums;
 
-/** Indicates the <i>address</i> type. Returns to indicate the type of the particular 
- * address component. Addresses within the geocoder may have multiple types. */
 public enum GeocodingTypes {
 	NONE,
 	/** Indicates a precise street address. */
@@ -36,10 +34,10 @@ public enum GeocodingTypes {
 	SUBLOCALITY,
 	/** Indicates a named neighborhood. */
 	NEIGHBORHOOD,
-	/** Indicates a named location, usually a building or collection of buildings 
+	/** Indicates a named location, usually a building or collection of buildings
 	 * with a common name. */
 	PREMISE,
-	/** Indicates a first-order entity below a named location, usually a singular 
+	/** Indicates a first-order entity below a named location, usually a singular
 	 * building within a collection of buildings with a common name. */
 	SUBPREMISE,
 	/** Indicates a postal code as used to address postal mail within the country. */
@@ -50,8 +48,8 @@ public enum GeocodingTypes {
 	AIRPORT,
 	/** Indicates a named park. */
 	PARK,
-	/** Indicates a named point of interest. Typically, these "POI"s are prominent 
-	 * local entities that don't easily fit in another category such as "Empire 
+	/** Indicates a named point of interest. Typically, these "POI"s are prominent
+	 * local entities that don't easily fit in another category such as "Empire
 	 * State Building" or "Statue of Liberty". */
 	POINT_OF_INTEREST,
 	/** Indicates a specific postal box. */
